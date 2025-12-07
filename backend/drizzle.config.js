@@ -6,4 +6,3 @@ export default {
   dialect: "postgresql",
   dbCredentials: { url: ENV.DATABASE_URL },
 };
-...
