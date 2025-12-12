@@ -31,7 +31,8 @@ export const authStyles = StyleSheet.create({
     fontWeight: "bold",
     color: COLORS.text,
     textAlign: "center",
-    marginBottom: 40,
+    marginBottom: 30,
+    marginTop: 30,
   },
   subtitle: {
     fontSize: 16,
