@@ -126,7 +126,7 @@ const HomeScreen = () => {
             }}
           />
           <Image
-            source={require("../../assets/images/pork.png")}
+            source={require("../../assets/images/sheep.png")}
             style={{
               width: 100,
               height: 100,
