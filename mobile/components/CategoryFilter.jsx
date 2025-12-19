@@ -50,5 +50,3 @@ export default function CategoryFilter({
     </View>
   );
 }
-
-// some comments for clarity
