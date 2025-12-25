@@ -38,12 +38,18 @@ const HomeScreen = () => {
         MealAPI.getRandomMeal(),
       ]);
 
-      const transformedCategories = apiCategories.map((cat, index) => ({
-        id: index + 1,
-        name: cat.strCategory,
-        image: cat.strCategoryThumb,
-        description: cat.strCategoryDescription,
-      }));
+      const transformedCategories = apiCategories
+        .filter((cat) => cat.strCategory.toLowerCase() !== "pork")
+        .map((cat, index) => ({
+          id: index + 1,
+          name: cat.strCategory,
+          image: cat.strCategoryThumb,
+          description: cat.strCategoryDescription,
+        }));
+
+      if (!selectedCategory && transformedCategories.length > 0) {
+        setSelectedCategory(transformedCategories[0].name);
+      }
 
       setCategories(transformedCategories);
 
@@ -243,5 +249,3 @@ const HomeScreen = () => {
   );
 };
 export default HomeScreen;
-
-// sorry but i need to keep some progress
