@@ -30,20 +30,15 @@ const FavoritesScreen = () => {
 
         const data = await response.json();
 
-        // التحقق من نوع البيانات المُرجعة
         let favorites = [];
 
         if (Array.isArray(data)) {
-          // إذا كان الرد مصفوفة مباشرة
           favorites = data;
         } else if (data && Array.isArray(data.favorites)) {
-          // إذا كان الرد كائن يحتوي على خاصية favorites
           favorites = data.favorites;
         } else if (data && Array.isArray(data.data)) {
-          // إذا كان الرد كائن يحتوي على خاصية data
           favorites = data.data;
         } else {
-          // في حالة عدم وجود بيانات صالحة
           console.log("Unexpected data format:", data);
           favorites = [];
         }
@@ -57,12 +52,10 @@ const FavoritesScreen = () => {
         setFavoriteRecipes(transformedFavorites);
       } catch (error) {
         console.log("Error loading favorites", error);
-        // لا نعرض Alert إلا في حالة خطأ حقيقي من الشبكة
-        // إذا كانت القائمة فارغة فقط، نتركها فارغة
         if (error.message !== "Failed to fetch favorites") {
           Alert.alert("Error", "Failed to load favorites");
         }
-        setFavoriteRecipes([]); // تأكد من أن القائمة فارغة عند الخطأ
+        setFavoriteRecipes([]);
       } finally {
         setLoading(false);
       }

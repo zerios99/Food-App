@@ -41,7 +41,6 @@ const RecipeDetailScreen = () => {
 
         const data = await response.json();
 
-        // التحقق من نوع البيانات المُرجعة
         let favorites = [];
 
         if (Array.isArray(data)) {
@@ -90,7 +89,6 @@ const RecipeDetailScreen = () => {
 
     loadRecipeDetail();
 
-    // نؤخر فحص المفضلات قليلاً حتى يتم تحميل الوصفة أولاً
     if (userId) {
       checkIfSaved();
     }
@@ -98,7 +96,6 @@ const RecipeDetailScreen = () => {
 
   const getYouTubeEmbedUrl = (url) => {
     if (!url) return null;
-    // example url: https://www.youtube.com/watch?v=mTvlmY4vCug
     const videoId = url.split("v=")[1];
     return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
   };
